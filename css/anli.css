@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.anli_cont{
+    margin-top: 70px;
+    width: 100%;
+    height: 450px;
+    background: url("../anli/y_banner1.jpg");
+}
+.anli_cont>div{
+    width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+.anli_cont>div img{
+    display: block;
+    margin: 0 auto;
+}
+.anli_cont>div img:nth-of-type(2){
+    margin-top: 50px;
+    cursor: pointer;
+}
+.case{
+    width: 100%;
+    overflow: hidden;
+}
+.cases{
+    width: 1200px;
+    margin: 0 auto;
+}
+.cases .cases_one{
+    width: 290px;
+    height: 322px;
+    float: left;
+    margin: 20px 5px;
+    position: relative;
+    overflow: hidden;
+    background:#F1F1F1 url('../images/tpbj2.jpg') no-repeat;
+}
+.cases .cases_one .pcshow{
+    width: 290px;
+    height: 207px;
+    margin: 35px 0 0 10px;
+    background: url("../images/appledn.png") no-repeat;
+}
+.cases_one img{
+    width: 247px;
+    height: 140px;
+    margin:  12px 0 0 10px;
+}
+.cases_one p:nth-of-type(1){
+    color: #000000;
+    font-size: 16px;
+    padding: 18px 0 0 15px;
+}
+.cases_one p:nth-of-type(2){
+    color: #bbbbbb;
+    font-size: 12px;
+    padding: 5px 0 0 15px;
+}
+.suprise{
+    position: absolute;
+    background: #171115;
+    opacity: 0.8;
+    width: 290px;
+    height: 322px;
+    z-index: 999;
+    top:0;
+    left:0;
+    transform-origin: 0 0 ;
+    transform: rotate(90deg);
+    transition: all 1s;
+}
+.suprise img{
+    width: 290px;
+    height: 322px;
+    display: block;
+    position: absolute;
+    top:-10px;
+    left:-10px;
+}
+.cases_one:hover .suprise{
+    transform: rotate(0deg);
+}
+.more{
+    width: 1200px;
+    height:250px;
+    margin: 0 auto;
+    text-align: center;
+}
+.more>img:nth-of-type(1){
+    width: 50px;
+    height: 50px;
+    margin: 100px auto 0;
+    display: block;
+}
+.more_button{
+    width: 58px;
+    height: 116px;
+    margin: 50px auto 0;
+    position: relative;
+}
+.more_button1{
+    width: 58px;
+    height: 58px;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+    background:url("../anli/lis_more_btn_bg.png") 0px -58px;
+}
+.more_button1:hover{
+    background-position: 0px 0px;
+    transition: all 1s;
+}

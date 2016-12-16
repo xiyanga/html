@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翱翔时代</title>
+    <link rel="icon" href="images/bird-小鸟.png">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/move.js"></script>
+    <script>
+        $(function () {
+            $("#header1").load("header1.html");
+            $("#footer").load("footer.html");
+        })
+    </script>
+    <style>
+        .map{
+            width: 100%;
+            height: 600px;
+            margin-top: 70px;
+            position: relative;
+        }
+        .map_main{
+            width:500px;
+            height: 250px;
+            background: antiquewhite;
+            position: absolute;
+            z-index: 99;
+            top:50%;
+            margin-top: -100px;
+            left:50%;
+            margin-left: -600px;
+            box-shadow: 3px 3px 30px;
+            padding-top: 50px;
+        }
+        .map_main img{
+            width: 145px;
+            height: 196px;
+            float: left;
+        }
+        .map_main div{
+            float: left;
+            width: 300px;
+            height: 163px;
+            margin-left: 20px;
+        }
+        .p1 {
+            margin-top: 20px;
+            color: #919191;
+        }
+        #map{
+            z-index: 999;
+            width:100%;
+            height:600px;
+            font-size:12px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="header1"></div>
+    <div class="map">
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3qkFf2G2rUbWKsNYmc2dDvL7"></script>
+        <!--百度地图容器-->
+        <div id="map"></div>
+        <div class="map_main">
+            <div>
+                <p style="font-size: 25px;color: #d0a267">北京总公司</p>
+                <p class="p1">联系电话： 010-51654321 / 51654300</p>
+                <p class="p1">邮 箱：shibaoshi@bjjfsd.com</p>
+                <p class="p1">地 址：北京朝阳区建外SOHOA座2002</p>
+            </div>
+            <img src="images/gongsi.jpg" alt="">
+        </div>
+
+        <script type="text/javascript">
+            //创建和初始化地图函数：
+            function initMap(){
+                createMap();//创建地图
+                setMapEvent();//设置地图事件
+                addMapControl();//向地图添加控件
+                addMapOverlay();//向地图添加覆盖物
+            }
+            function createMap(){
+                map = new BMap.Map("map");
+                map.centerAndZoom(new BMap.Point(116.433025,39.926134),16);
+            }
+            function setMapEvent(){
+                map.enableScrollWheelZoom();
+                map.enableKeyboard();
+                map.enableDragging();
+                map.enableDoubleClickZoom()
+            }
+            function addClickHandler(target,window){
+                target.addEventListener("click",function(){
+                    target.openInfoWindow(window);
+                });
+            }
+            function addMapOverlay(){
+                var markers = [
+                    {content:"翱翔时代",title:"翱翔时代",imageOffset: {width:-46,height:-21},position:{lat:39.92789,lng:116.439116}}
+                ];
+                for(var index = 0; index < markers.length; index++ ){
+                    var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+                    var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+                        imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+                    })});
+                    var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+                    var opts = {
+                        width: 200,
+                        title: markers[index].title,
+                        enableMessage: false
+                    };
+                    var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+                    marker.setLabel(label);
+                    addClickHandler(marker,infoWindow);
+                    map.addOverlay(marker);
+                };
+            }
+            //向地图添加控件
+            function addMapControl(){
+                var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+                scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+                map.addControl(scaleControl);
+                var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+                map.addControl(navControl);
+                var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+                map.addControl(overviewControl);
+            }
+            var map;
+            initMap();
+        </script>
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

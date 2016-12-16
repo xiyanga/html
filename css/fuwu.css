@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.fuwu{
+    width: 100%;
+    height: 680px;
+    background:url("../images/z_bg1.jpg")
+}
+.fuwu_cont{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 150px;
+    color: white;
+    position: relative;
+}
+.fuwu_cont>div{
+    float: left;
+}
+.fuwu_cont .one{
+    width: 290px;
+    height: 460px;
+    background: #1e83d8;
+}
+.fuwu_cont .one img{
+    margin: 130px 0 0 90px;
+}
+.fuwu_cont .one .one_cont{
+    width: 290px;
+    height: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+.fuwu_cont .two{
+    width: 593px;
+    height: 460px;
+    margin-left: 10px;
+    position: absolute;
+    left: 295px;
+}
+.two .middle_top{
+    width: 593px;
+    height: 230px;
+}
+.two img{
+    margin-top: 40px;
+}
+.two .middle_top>div{
+    width: 290px;
+    height: 218px;
+    background: #1e83d8;
+    float: left;
+    text-align: center;
+}
+.main1{
+    position: absolute;
+    left:0;
+}
+.main2{
+    position: absolute;
+    left:292px;
+}
+.middle_bottom{
+    width: 593px;
+    height: 230px;
+    clear: both;
+    background: #1e83d8;
+    text-align: center;
+    position: absolute;
+    left:0;
+}
+.main{
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 3px 3px 3px #8b8c94;
+}
+.main3{
+    position: absolute;
+    right:0;
+}
+.fuwu_cont .main:hover{
+    transform: translate(0,-10px);
+    transition: all 1s;
+    background: #0a2d4a;
+}
+.fuwu_cont .main:hover img{
+    animation: shake 1s ease 0s 1;
+    transition: all 1s;
+}

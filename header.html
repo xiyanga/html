@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翱翔时代</title>
+    <link rel="icon" href="images/bird-小鸟.png">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/move.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .web_banner_nav{
+            width: 100%;
+            height: 120px;
+            background: white;
+            position: absolute;
+            top: 500px;
+            z-index: 999;
+            border-bottom: 1px solid #cccccc;
+            border-top: 1px solid #cccccc;
+            /*padding-top: 20px;*/
+        }
+        .web_banner_nav_cont{
+            width: 1200px;
+            height: 70px;
+            margin: 0 auto;
+        }
+        .web_banner_nav_img{
+            width: 472px;
+            height: 70px;
+            float: left;
+        }
+        .web_banner_nav_img img{
+            height: 60px;
+            display: block;
+            float: left;
+        }
+        .web_banner_nav_ul{
+            width: 550px;
+            height: 70px;
+            float: right;
+            padding-top: 20px;
+        }
+        .web_banner_nav_ul li{
+            float: left;
+            width: 40px;
+            height: 32px;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 35px 0;
+        }
+        .web_banner_nav_ul li a{
+            display: inline;
+            width: 40px;
+            height: 32px;
+            line-height: 32px;
+            text-decoration: none;
+        }
+        .web_banner_nav_ul li .change1{
+            position: absolute;
+            top:0;
+            color:#999999;
+        }
+        .web_banner_nav_ul li .change2{
+            position: absolute;
+            top:25px;
+            color:#c5a47e;
+            z-index: 999;
+        }
+    </style>
+    <script>
+        $(function () {
+        $(".web_banner_nav_ul li").mouseover(function () {
+            $(this).find(".change1").stop().animate({"top":"-25px"},200);
+            $(this).find(".change2").stop().animate({"top":"0px"},200);
+        }).mouseout(function () {
+            $(this).find(".change1").stop().animate({"top":"0px"},100);
+            $(this).find(".change2").stop().animate({"top":"-25px"},100);
+        });
+        $(".web_banner_nav").addClass("animated fadeInUp");
+        (function () {
+            $(window).scroll(function () {
+                var scr=$(window).scrollTop();
+                if(scr>650){
+                    $(".web_banner_nav").animate({"top":"0"},1000);
+                    $(".web_banner_nav_img img").css({"height":"60","paddingTop":"20"});
+                    $(".web_banner_nav_ul").css({"marginTop":"0px"});
+                    $(".web_banner_nav").css({"position":"fixed","height":"110","marginTop":"0","paddingTop":"0"});
+                }else{
+                    $(".web_banner_nav").css({"position":"absolute","height":"120","padding":"0"});
+                    $(".web_banner_nav_img img").css({height:70});
+                    $(".web_banner_nav").animate({"top":"0"},1000);
+                    $(".web_banner_ul").animate({"top":"600"});
+                }
+            })
+        })();
+        })
+    </script>
+</head>
+<body>
+<div class="web_banner_nav">
+    <div class="web_banner_nav_cont">
+        <div class="web_banner_nav_img">
+            <img src="images/bird-小鸟.png">
+            <img src="images/翱翔.png">
+        </div>
+        <ul class="web_banner_nav_ul">
+            <li onclick="javascript:window.open('index.html')">
+                <a href="" class="change2">首页</a>
+                <a href="" class="change1">首页</a>
+            </li>
+            <li onclick="javascript:window.open('fuwu.html')">
+                <a href="" class="change2">服务</a>
+                <a href="" class="change1">服务</a>
+            </li>
+            <li onclick="javascript:window.open('anli.html')">
+                <a href="" class="change2">案例</a>
+                <a href="" class="change1">案例</a>
+            </li>
+            <li onclick="javascript:window.open('guanyu.html')">
+                <a href="" class="change2">关于</a>
+                <a href="" class="change1">关于</a>
+            </li>
+            <li onclick="javascript:window.open('lianxi.html')">
+                <a href="" class="change2">联系</a>
+                <a href="" class="change1">联系</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
